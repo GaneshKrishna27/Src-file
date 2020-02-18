@@ -1,7 +1,7 @@
 export class SubCategory {
-SCid:number;
-SCname:string;
-Cid:number;
+SubCategoryid:number;
+SubCategoryname:string;
+Categoryid:number;
 Brief_details:string;
 Gstin:string;
 

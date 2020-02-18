@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import{ FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SellerComponent } from './Seller/SellerIndex/seller.component';
-import { BuyerComponent } from './Buyer/BuyerIndex/buyer.component';
+
+
 
 import { ServicesComponent } from './services/services.component';
 
@@ -27,12 +27,14 @@ import { SignupSellerComponent } from './Account/signup-seller/signup-seller.com
 import { SignupBuyerComponent } from './Account/signup-buyer/signup-buyer.component';
 import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
 import { HomeComponent } from './Account/home/home.component';
+import { SellerindexComponent } from './Seller/sellerindex/sellerindex.component';
+import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SellerComponent,
-    BuyerComponent,
+    
+  
     
     ServicesComponent,
    
@@ -54,7 +56,9 @@ import { HomeComponent } from './Account/home/home.component';
     SignupSellerComponent,
     SignupBuyerComponent,
     BuyproductComponent,
-    HomeComponent
+    HomeComponent,
+    SellerindexComponent,
+    BuyerindexComponent
   ],
   imports: [
     BrowserModule,

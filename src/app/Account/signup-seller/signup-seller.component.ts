@@ -21,7 +21,7 @@ export class SignupSellerComponent implements OnInit {
             companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
             Gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
             briefaboutcompany:['',[Validators.required]],
-            postaladdress:['',[Validators.required]],
+            address:['',[Validators.required]],
             website:['',[Validators.required]],
             email: ['', [Validators.required, Validators.email]],
             mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],

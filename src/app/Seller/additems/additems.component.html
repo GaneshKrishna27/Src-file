@@ -1,1 +1,77 @@
-<p>additems works!</p>
+<div class="container">
+<div class="card m-3">
+<h5 class="card-header text-center">Add Items</h5>
+<div class="card-body">
+  <form [formGroup]="additemsForm" (ngSubmit)="onSubmit()">
+    
+  <div class="form-group col">
+      <label>select Category:</label>
+      <select formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+        <option value=""></option>
+        <option value="Clothes">Clothes</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Accessories">Accessories</option>
+        <option value="Grocery">Grocery</option>
+      </select>
+    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+      <div *ngIf="f.category.errors.required">category is required</div>
+    </div>
+  </div>
+
+
+    <div class="form-group col">
+      <label for="exampleFormControlSelect2">select SubCategory:</label>
+      <select formControlName="subcategory" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategory.errors }">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <div *ngIf="submitted && f.subcategory.errors" class="invalid-feedback">
+        <div *ngIf="f.subcategory.errors.required">subcategory is required</div>
+      </div>
+    </div>
+ 
+    
+
+    <div class="form-group col">
+      <label>ItemName:</label>
+      <input type="text" formControlName="itemname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemname.errors }">
+      <div *ngIf="submitted && f.itemname.errors" class="invalid-feedback">
+        <div *ngIf="f.itemname.errors.required">category is required</div>
+      </div>
+    </div>
+
+
+      <div class="form-group col">
+        <label>Price:</label>
+        <input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+        <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+          <div *ngIf="f.price.errors.required">category is required</div>
+        </div>
+      </div>
+
+
+      <div class="form-group col">
+        <label>Stock:</label>
+        <input type="number"formControlName="stock" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.stock.errors }">
+        <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+          <div *ngIf="f.stock.errors.required">category is required</div>
+        </div>
+      </div>
+
+        <div class="form-group col">
+          <label for="exampleFormControlFile1">Upload Photo:</label>
+          <input type="file" class="form-control-file" >
+        </div>
+
+        <div class="text-center">
+          <button class="btn btn-primary mr-1">Add</button>
+          <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
+      </div>
+      
+ </form>
+</div>
+</div>
+</div>

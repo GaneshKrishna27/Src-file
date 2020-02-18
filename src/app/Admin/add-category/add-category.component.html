@@ -1,1 +1,47 @@
-<p>add-category works!</p>
+<div class="container">
+    <div class="card bg-light mb-3">
+        <h5 class="card-header text-center">Add Category</h5>
+        <div class="card-body">
+            <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+               
+                <div class="form-group col-md-5 offset-4">
+                    <label>CategoryId</label>
+                    <input type="number" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }" />
+                    <div *ngIf="submitted && f.categoryid.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryid.errors.required">categoryid is required</div>
+                       
+                    </div>
+                </div>
+                    <div class="form-group col-md-5 offset-4">
+                        <label>CategoryName</label>
+                        <select formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }">
+                            <option value=""></option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Grocery">Grocery</option>
+                        </select>
+                        <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
+                            <div *ngIf="f.categoryname.errors.required"> categoryname is required</div>
+                            <div *ngIf="f.categoryname.errors.pattern">Enter only Alphabets</div>
+                        </div>
+                    </div>
+   
+                <div class="form-group col-md-5 offset-4">
+                    <label>Description</label>
+                    <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                        <div *ngIf="f.description.errors.required">description is required</div>    
+                    </div>
+                </div>   
+            
+              
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1">Add</button>
+                    <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
