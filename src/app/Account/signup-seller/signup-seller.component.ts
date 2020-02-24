@@ -19,11 +19,11 @@ export class SignupSellerComponent implements OnInit {
             username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
             password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
             companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            Gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
-            briefaboutcompany:['',[Validators.required]],
-            address:['',[Validators.required]],
-            website:['',[Validators.required]],
-            email: ['', [Validators.required, Validators.email]],
+            Gstin:['',[Validators.required,Validators.pattern('^[A-Za-z]{3,10}$')]],
+            briefaboutcompany:['',[Validators.required,Validators.pattern('^[A-Za-z]{3,20}$')]],
+            address:['',[Validators.required,Validators.pattern('^[A-Za-z0-9]{3,20}$')]],
+            website:['',[Validators.required,Validators.pattern('^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}$')]],
+            email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
             mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
              
             acceptTerms: [false, Validators.requiredTrue]

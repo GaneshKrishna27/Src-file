@@ -1,7 +1,7 @@
 export class Seller {
     Sid:number;
-    Sname:string;
-    Pwd:string;
+    Username:string;
+    Password:string;
     Companyname:string
     Gstin:string
     Briefaboutcompany:string;

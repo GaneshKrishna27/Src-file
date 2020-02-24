@@ -29,6 +29,9 @@ import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
 import { HomeComponent } from './Account/home/home.component';
 import { SellerindexComponent } from './Seller/sellerindex/sellerindex.component';
 import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
+import { EditprofileComponent } from './Buyer/editprofile/editprofile.component';
+import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,10 @@ import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
     BuyproductComponent,
     HomeComponent,
     SellerindexComponent,
-    BuyerindexComponent
+    BuyerindexComponent,
+    EditprofileComponent,
+    EditprofilesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

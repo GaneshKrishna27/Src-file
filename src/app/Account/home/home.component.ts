@@ -9,6 +9,15 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  gotoabout(){
+    
+    document.getElementById("aboutid").scrollIntoView();
+  }
+  gotocontact(){
+    
+    document.getElementById("contactid").scrollIntoView();
+  }
+
   ngOnInit() {
   }
 

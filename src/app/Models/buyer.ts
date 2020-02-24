@@ -1,7 +1,7 @@
 export class Buyer {
     Bid:number;
-    Bname:string;
-    Pwd:string;
+    Username:string;
+    Password:string;
     Email:string;
     Mobile:number;
     Datetime:Date;

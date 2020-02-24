@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="card bg-light mb-3">
+        <h5 class="card-header text-center">Signup-Buyer</h5>
+        <div class="card-body">
+            <form [formGroup]="EditProfileForm" (ngSubmit)="onSubmit()">
+                
+
+                    <div class="form-group col-md-5 offset-4">
+                        <label for="username">Username:</label>
+                        <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                            <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group col-md-5 offset-4">
+                        <label for="password">Password:</label>
+                        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+    
+                <div class="form-group col-md-5 offset-4 ">
+                    <label>Email:</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                
+                <div class="form-group col-md-5 offset-4">
+                    <label>Mobile:</label>
+                    <input type="text" formControlName="mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                    <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+                        <div *ngIf="f.mobile.errors.required">Mobile no is required</div>
+                        <div *ngIf="f.mobile.errors.pattern">Mobile no Must be Valid</div>
+                    </div>
+                </div>
+                
+
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Update</button>
+                <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    
+    

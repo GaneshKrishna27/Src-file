@@ -22,6 +22,9 @@ import { DailyReportsComponent } from './Admin/daily-reports/daily-reports.compo
 import { HomeComponent } from './Account/home/home.component';
 import { SellerindexComponent } from './Seller/sellerindex/sellerindex.component';
 import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
+import { EditprofileComponent } from './Buyer/editprofile/editprofile.component';
+import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 
 const routes: Routes = [
@@ -29,14 +32,16 @@ const routes: Routes = [
   {path:'add-items',component:AdditemsComponent},
   {path:'view-items',component:ViewItemsComponent},
   {path:'view-reports',component:ViewReportsComponent},
-  {path:'view-profile',component:ViewProfileComponent}
+  {path:'view-profile',component:ViewProfileComponent},
+  {path:'editprofiles',component:EditprofilesComponent}
 ]},
   {path:'buyerindex',component:BuyerindexComponent,children:[
   {path:'search',component:SearchComponent},
   {path:'viewcart',component:ViewcartComponent},
   {path:'purchase-history',component:PurchaseHistoryComponent},
   {path:'buyproduct',component:BuyproductComponent},
-  {path:'viewprofile',component:ViewProfileComponent}
+  {path:'viewprofile',component:ViewProfileComponent},
+  {path:'editprofile',component:EditprofileComponent}
 ]},
 {path:'adminindex',component:AdminIndexComponent,children:[
   {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
@@ -49,7 +54,8 @@ const routes: Routes = [
 {path:'home',component:HomeComponent},
 {path:'signup-buyer',component:SignupBuyerComponent},
 {path:'signup-seller',component:SignupSellerComponent},
-{path:'',redirectTo:'login',pathMatch:"full"}
+{path:'contact',component:ContactComponent},
+{path:'',redirectTo:'home',pathMatch:"full"}
 ];
 
 @NgModule({

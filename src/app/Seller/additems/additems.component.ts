@@ -17,7 +17,10 @@ export class AdditemsComponent implements OnInit {
       subcategory: ['', [Validators.required]],
       itemname:['',[Validators.required]],
       price:['',[Validators.required]],
+      desc:['',[Validators.required]],
       stock:['',[Validators.required]],
+      remarks:['',[Validators.required]],
+      photo:['',[Validators.required]],
     
   });
   }
