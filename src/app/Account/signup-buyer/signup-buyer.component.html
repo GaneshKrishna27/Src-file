@@ -9,6 +9,7 @@
                     <input type="number" formControlName="bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }" />
                     <div *ngIf="submitted && f.bid.errors" class="invalid-feedback">
                     <div *ngIf="f.bid.errors.required">Buyer id is required</div> 
+
                     </div>        
                 </div>
             
@@ -18,6 +19,7 @@
                     <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                     <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                         <div *ngIf="f.username.errors.required">Username is required</div>
+                        <div *ngIf="f.mobile.errors.pattern">Username Must be Valid</div>
                     </div>
                 </div>
             
@@ -26,6 +28,7 @@
                     <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                         <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.mobile.errors.pattern">Password Must be Valid</div>
                     </div>
                 </div>
 
@@ -52,15 +55,15 @@
                 <input type="date" formControlName="datetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.datetime.errors }" />
                 <div *ngIf="submitted && f.datetime.errors" class="invalid-feedback">
                     <div *ngIf="f.datetime.errors.required">Date is required</div>
-                    <div *ngIf="f.datetime.errors.pattern">Date Must be Valid Format</div>
+                    <!-- <div *ngIf="f.datetime.errors.pattern">Date Must be Valid Format</div> -->
                 </div>
             </div> 
         
-            <div class="form-group form-check col-md-5 offset-5">
+            <!-- <div class="form-group form-check col-md-5 offset-5">
                 <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
                 <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
                 <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
-            </div>
+            </div> -->
         
         <div class="text-center">
             <button class="btn btn-primary mr-1">Signup</button>

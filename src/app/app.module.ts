@@ -3,11 +3,7 @@ import { NgModule } from '@angular/core';
 import{ FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
-
 import { ServicesComponent } from './services/services.component';
-
 import { AdditemsComponent } from './Seller/additems/additems.component';
 import { ViewItemsComponent } from './Seller/view-items/view-items.component';
 import { ViewReportsComponent } from './Seller/view-reports/view-reports.component';
@@ -32,15 +28,13 @@ import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
 import { EditprofileComponent } from './Buyer/editprofile/editprofile.component';
 import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.component';
 import { ContactComponent } from './Account/contact/contact.component';
+import{HttpClientModule}from '@angular/common/http';
+import{UserService} from './service/user.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    
-  
-    
+    AppComponent, 
     ServicesComponent,
-   
     AdditemsComponent,
     ViewItemsComponent,
     ViewReportsComponent,
@@ -70,9 +64,10 @@ import { ContactComponent } from './Account/contact/contact.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,9 +1,9 @@
 export class Buyer {
-    Bid:number;
-    Username:string;
-    Password:string;
-    Email:string;
-    Mobile:number;
-    Datetime:Date;
+    public Bid:number;
+    public Username:string;
+    public Password:string;
+    public Email:string;
+    public Mobile:number;
+    public Datetime:Date;
       
 }
