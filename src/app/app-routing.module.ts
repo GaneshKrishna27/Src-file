@@ -35,14 +35,14 @@ const routes: Routes = [
   {path:'view-profile',component:ViewProfileComponent},
   {path:'editprofiles',component:EditprofilesComponent}
 ]},
-  {path:'buyerindex',component:BuyerindexComponent,children:[
+  {path:'buyerindex',component:BuyerindexComponent},
   {path:'search',component:SearchComponent},
   {path:'viewcart',component:ViewcartComponent},
   {path:'purchase-history',component:PurchaseHistoryComponent},
   {path:'buyproduct',component:BuyproductComponent},
   {path:'viewprofile',component:ViewProfileComponent},
-  {path:'editprofile',component:EditprofileComponent}
-]},
+  {path:'editprofile',component:EditprofileComponent},
+
 {path:'adminindex',component:AdminIndexComponent,children:[
   {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
   {path:'block-unblock-seller',component:BlockUnblockSellerComponent},

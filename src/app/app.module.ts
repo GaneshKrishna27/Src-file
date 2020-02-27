@@ -30,6 +30,9 @@ import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.compon
 import { ContactComponent } from './Account/contact/contact.component';
 import{HttpClientModule}from '@angular/common/http';
 import{UserService} from './service/user.service';
+import { BuyerService } from './service/buyer.service';
+import { SellerService } from './service/seller.service';
+import { AdminService } from './service/admin.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +70,7 @@ import{UserService} from './service/user.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,BuyerService,SellerService,AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

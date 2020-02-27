@@ -19,16 +19,16 @@ export class SignupSellerComponent implements OnInit {
 
     ngOnInit() {
         this.SignupForm = this.formBuilder.group({
-            sid: ['', Validators.required],
-            username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
-            companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            gstin:['',[Validators.required,Validators.pattern('^[A-Za-z]{3,10}$')]],
-            briefaboutcompany:['',[Validators.required,Validators.pattern('^[A-Za-z]{3,20}$')]],
-            address:['',[Validators.required,Validators.pattern('^[A-Za-z0-9]{3,20}$')]],
-            website:['',[Validators.required,Validators.pattern('^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}$')]],
-            email: ['', [Validators.required, Validators.email,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
-            mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+            Sid: ['', [Validators.required]],
+            Username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+            Password:['',[Validators.required,Validators.pattern('^[A-Za-z]{8}[~!@#$%^&*()]$')]],
+            Companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+            Gstin:['',[Validators.required,Validators.pattern('^[A-Za-z0-9]{3,10}$')]],
+            Briefaboutcompany:['',[Validators.required,Validators.pattern('^[A-Za-z]{3,20}$')]],
+            Address:['',[Validators.required,Validators.pattern('^[A-Za-z0-9]{3,20}$')]],
+            Website:['',[Validators.required]],
+            Email: ['', [Validators.required, Validators.email]],
+            Mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
              
             acceptTerms: [false, Validators.requiredTrue]
         });
@@ -42,16 +42,16 @@ export class SignupSellerComponent implements OnInit {
     // display form values on success
         if (this.SignupForm.valid) {
             this.seller=new Seller();
-        this.seller.Sid=this.SignupForm.value["sid"];
-        this.seller.Username=this.SignupForm.value["username"];
-        this.seller.Password=this.SignupForm.value["password"];
-        this.seller.Companyname=this.SignupForm.value["companyname"];
-        this.seller.Gstin=this.SignupForm.value["gstin"];
-        this.seller.Briefaboutcompany=this.SignupForm.value["briefaboutcompany"];
-        this.seller.Postal_address=this.SignupForm.value["address"];
-        this.seller.Website=this.SignupForm.value["website"];
-        this.seller.Email=this.SignupForm.value["email"];
-        this.seller.Mobile=this.SignupForm.value["mobile"];
+        this.seller.sid=this.SignupForm.value["Sid"];
+        this.seller.username=this.SignupForm.value["Username"];
+        this.seller.password=this.SignupForm.value["Password"];
+        this.seller.companyname=this.SignupForm.value["Companyname"];
+        this.seller.gstin=this.SignupForm.value["Gstin"];
+        this.seller.briefaboutcompany=this.SignupForm.value["Briefaboutcompany"];
+        this.seller.address=this.SignupForm.value["Address"];
+        this.seller.website=this.SignupForm.value["Website"];
+        this.seller.email=this.SignupForm.value["Email"];
+        this.seller.mobile=this.SignupForm.value["Mobile"];
          
         this.service.SellerSignup(this.seller).subscribe(res=>{
         console.log('Record Added')
@@ -68,3 +68,9 @@ export class SignupSellerComponent implements OnInit {
         this.SignupForm.reset();
     }
 }
+
+
+
+
+// ,Validators.pattern('^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}$')
+//,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')

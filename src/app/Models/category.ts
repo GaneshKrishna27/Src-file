@@ -1,6 +1,6 @@
 export class Category {
-Cid:number;
-Categoryname:string;
-Brief_details:string;
+cid:number;
+categoryname:string;
+briefdetails:string;
 
 }

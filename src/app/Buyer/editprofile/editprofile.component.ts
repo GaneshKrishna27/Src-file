@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BuyerService } from 'src/app/service/buyer.service';
+import { Buyer } from 'src/app/Models/buyer';
+
 
 @Component({
   selector: 'app-editprofile',
@@ -9,17 +12,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EditprofileComponent implements OnInit {
 
   EditProfileForm: FormGroup;
-  submitted = false;
+  submitted: boolean;
+    
+    buyer:Buyer;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private service:BuyerService) { }
 
   ngOnInit() {
       this.EditProfileForm = this.formBuilder.group({
-          
-          username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-          password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
-          email: ['', [Validators.required, Validators.email]],
-          mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+          Bid:['',[Validators.required]],
+          Username:['',[Validators.required]],
+          Password:['',[Validators.required,Validators.pattern('^[a-z]{8}[~!@#$%^&*()]$')]],
+          Email: ['', [Validators.required, Validators.email]],
+          Mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+          Datetime:['',[Validators.required]]
          
           
          
@@ -29,13 +35,46 @@ export class EditprofileComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.EditProfileForm.controls; }
 
+  onSearch(){
+    let Bid=this.EditProfileForm.value["Bid"];
+    this.service.GetById(Bid).subscribe(res=>
+      {
+          this.buyer=res;
+          console.log(this.buyer);
+          this.EditProfileForm.setValue({
+           Bid:this.buyer.bid,
+           Username:this.buyer.username,
+           Password:this.buyer.password,
+           Email:this.buyer.email,
+           Mobile:this.buyer.mobile,
+           Datetime:this.buyer.datetime
+
+         })
+      },err=>{
+        console.log(err)
+      })
+  }
+
   onSubmit() {
+      
       this.submitted = true;
        // display form values on success
-      if (this.EditProfileForm.valid) {
-          alert('SUCCESS!! :-)\n\n') 
-          console.log(JSON.stringify(this.EditProfileForm.value));
-      }
+       if (this.EditProfileForm.valid) {
+        this.buyer=new Buyer();
+        this.buyer.bid=this.EditProfileForm.value["Bid"];   
+    this.buyer.username=this.EditProfileForm.value["Username"];
+    this.buyer.password=this.EditProfileForm.value["Password"];
+    this.buyer.email=this.EditProfileForm.value["Email"];
+    this.buyer.mobile=this.EditProfileForm.value["Mobile"];
+    this.buyer.datetime=this.EditProfileForm.value["Datetime"];
+    this.service.Editprofile(this.buyer).subscribe(res=>{
+    console.log('Record Updated')
+    },err=>{
+    console.log(err)
+    })
+        alert('SUCCESS!! :-)\n\n') 
+        // console.log(JSON.stringify(this.SignupForm.value));
+    }
   }
 
   onReset() {

@@ -27,7 +27,7 @@ export class SignupBuyerComponent implements OnInit {
             mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
             datetime:['',[Validators.required]],
             
-            // acceptTerms: [false, Validators.requiredTrue]
+            acceptTerms: [false, Validators.requiredTrue]
         });
     }
 
@@ -39,13 +39,13 @@ export class SignupBuyerComponent implements OnInit {
     // display form values on success
         if (this.SignupForm.valid) {
             this.buyer=new Buyer();
-        this.buyer.Bid=this.SignupForm.value["bid"];
-        this.buyer.Username=this.SignupForm.value["username"];
-        this.buyer.Password=this.SignupForm.value["password"];
-        this.buyer.Email=this.SignupForm.value["email"];
-        this.buyer.Mobile=this.SignupForm.value["mobile"];
+        this.buyer.bid=this.SignupForm.value["bid"];
+        this.buyer.username=this.SignupForm.value["username"];
+        this.buyer.password=this.SignupForm.value["password"];
+        this.buyer.email=this.SignupForm.value["email"];
+        this.buyer.mobile=this.SignupForm.value["mobile"];
        
-        this.buyer.Datetime=this.SignupForm.value["datetime"];
+        this.buyer.datetime=this.SignupForm.value["datetime"];
         
         this.service.BuyerSignup(this.buyer).subscribe(res=>{
         console.log('Record Added')

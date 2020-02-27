@@ -5,12 +5,10 @@ import { BuyerService } from './buyer.service';
 describe('BuyerService', () => {
   let service: BuyerService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(BuyerService);
-  });
+  beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
+    const service: BuyerService=TestBed.get(BuyerService);
     expect(service).toBeTruthy();
   });
 });
