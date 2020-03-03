@@ -33,6 +33,10 @@ import{UserService} from './service/user.service';
 import { BuyerService } from './service/buyer.service';
 import { SellerService } from './service/seller.service';
 import { AdminService } from './service/admin.service';
+import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
+import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
+import { UserAuthService } from './authentications/user-auth.service';
+import { AuthGuardService } from './authentications/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,9 @@ import { AdminService } from './service/admin.service';
     BuyerindexComponent,
     EditprofileComponent,
     EditprofilesComponent,
-    ContactComponent
+    ContactComponent,
+    ViewcategoryComponent,
+    ViewsubcategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +76,7 @@ import { AdminService } from './service/admin.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService,BuyerService,SellerService,AdminService],
+  providers: [UserService,BuyerService,SellerService,AdminService,UserAuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

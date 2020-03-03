@@ -14,6 +14,7 @@
             </div>
             <div class="form-group col-md-5 offset-4">
                 <label> SubCategoryName:</label>
+                <!-- <option *ngFor="let item in List" value="itemCid">{{item.cName}}</option> -->
                 <select formControlName="SubCategoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubCategoryname.errors }">
                     <option value=""></option>
                     <option value="Clothes">Clothes</option>
@@ -26,10 +27,12 @@
                 </div>
             </div>
             <div class="form-group col-md-5 offset-4">
-                <label>CategoryId:</label>
-                <input type="text" formControlName="Cid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Cid.errors }"> 
-                <div *ngIf="submitted && f.Cid.errors" class="invalid-feedback">
-                    <div *ngIf="f.Cid.errors.required">categoryid is required</div>
+                <label>CategoryName:</label>
+                <select formControlName="CategoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CategoryName.errors }">
+                    <option *ngFor="let cat of list" [value]="cat.cid">{{cat.categoryname}}</option>
+                </select>
+                <div *ngIf="submitted && f.CategoryName.errors" class="invalid-feedback">
+                    <div *ngIf="f.CategoryName.errors.required">categoryname is required</div>
                 </div>
             </div>
            

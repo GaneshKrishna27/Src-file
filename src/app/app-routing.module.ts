@@ -25,6 +25,8 @@ import { BuyerindexComponent } from './Buyer/buyerindex/buyerindex.component';
 import { EditprofileComponent } from './Buyer/editprofile/editprofile.component';
 import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.component';
 import { ContactComponent } from './Account/contact/contact.component';
+import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
+import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 
 
 const routes: Routes = [
@@ -47,7 +49,10 @@ const routes: Routes = [
   {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
   {path:'block-unblock-seller',component:BlockUnblockSellerComponent},
   {path:'add-category',component:AddCategoryComponent},
+  {path:'viewcategory',component:ViewcategoryComponent},
+  {path:'viewsubcategory',component:ViewsubcategoryComponent},
   {path:'add-subcategory',component:AddSubCategoryComponent},
+
   {path:'daily-report',component:DailyReportsComponent}
 ]},
 {path:'login',component:LoginComponent},

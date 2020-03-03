@@ -37,8 +37,8 @@ export class EditprofilesComponent implements OnInit {
     get f() { return this.editprofilesForm.controls; }
 
     onSearch(){
-        let Sid=this.editprofilesForm.value["Sid"];
-        this.service.GetById(Sid).subscribe(res=>
+        let sid=this.editprofilesForm.value["Sid"];
+        this.service.GetById(sid).subscribe(res=>
           {
               this.seller=res;
               console.log(this.seller);

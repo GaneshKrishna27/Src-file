@@ -31,4 +31,17 @@ export class AdminService {
   {
     return this.http.delete<any>(this.url+'Deletesubcategory/'+SCid,Requestheaders);
   }
+  public Viewcategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Viewcategory',Requestheaders);
+  }
+  public Viewsubcategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Viewsubcategory',Requestheaders);
+  }
+  public Getcategory():Observable<Category[]>
+  {
+    return this.http.get<Category[]>(this.url+'Getcategory',Requestheaders);
+
+  }
 }

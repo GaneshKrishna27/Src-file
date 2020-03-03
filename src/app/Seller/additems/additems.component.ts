@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Items } from 'src/app/Models/items';
 import { SellerService } from 'src/app/service/seller.service';
+import { Category } from 'src/app/Models/category';
+import { SubCategory } from 'src/app/Models/sub-category';
 @Component({
   selector: 'app-additems',
   templateUrl: './additems.component.html',
@@ -10,16 +12,23 @@ import { SellerService } from 'src/app/service/seller.service';
 export class AdditemsComponent implements OnInit {
   additemsForm: FormGroup;
     submitted = false;
-    items:Items
+    items:Items;
+    categorylist:Category[];
+    subcategorylist:SubCategory[];
 
-    constructor(private formBuilder: FormBuilder,private service:SellerService) { }
+    constructor(private formBuilder: FormBuilder,private service:SellerService) {
+      this.service.Getcategory().subscribe(res=>{
+        this.categorylist=res;
+        console.log(this.categorylist);
+      })
+     }
     ngOnInit() {
 
     this.additemsForm = this.formBuilder.group({
       Iid: ['', Validators.required],
       Cid: ['', Validators.required],
       SCid: ['', [Validators.required]],
-      Sid: ['', [Validators.required]],
+      // Sid: ['', [Validators.required]],
       Itemname:['',[Validators.required]],
       Price:['',[Validators.required]],
       Description:['',[Validators.required]],
@@ -34,15 +43,27 @@ export class AdditemsComponent implements OnInit {
 // convenience getter for easy access to form fields
 get f() { return this.additemsForm.controls; }
 
+
+
+onGetsubcategory()
+  {
+    let cid=this.additemsForm.value["Cid"];
+    console.log(cid);
+    this.service.Getsubcategory(cid).subscribe(res=>{
+      this.subcategorylist=res;
+      console.log(this.subcategorylist);
+    })
+  }
+
 onSubmit() {
   this.submitted = true;
    // display form values on success
    if(this.additemsForm.valid){
     this.items=new Items();
-    this.items.iid=(this.additemsForm.value["Iid"]),   
+    this.items.iid=(this.additemsForm.value["Iid"]),  
     this.items.cid=this.additemsForm.value["Cid"],
     this.items.scid=this.additemsForm.value["SCid"],
-    this.items.sid=this.additemsForm.value["Sid"],  
+    // this.items.sid=this.additemsForm.value["Sid"],  
     this.items.itemname=this.additemsForm.value["Itemname"],
     this.items.price=Number(this.additemsForm.value["Price"]),
     this.items.description=this.additemsForm.value["Description"],  

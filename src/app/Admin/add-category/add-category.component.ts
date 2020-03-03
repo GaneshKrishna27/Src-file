@@ -12,6 +12,7 @@ export class AddCategoryComponent implements OnInit {
   categoryForm: FormGroup;
     submitted = false;
     category:Category;
+  
 
 
     constructor(private formBuilder: FormBuilder,private service:AdminService) { }
