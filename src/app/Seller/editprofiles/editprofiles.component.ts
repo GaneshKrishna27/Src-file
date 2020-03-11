@@ -37,7 +37,7 @@ export class EditprofilesComponent implements OnInit {
     get f() { return this.editprofilesForm.controls; }
 
     onSearch(){
-        let sid=this.editprofilesForm.value["Sid"];
+        let sid=localStorage.getItem('sid');
         this.service.GetById(sid).subscribe(res=>
           {
               this.seller=res;

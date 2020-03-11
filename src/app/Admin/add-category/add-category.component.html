@@ -4,14 +4,14 @@
         <div class="card-body">
             <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
                
-                <div class="form-group col-md-5 offset-4">
+                <!-- <div class="form-group col-md-5 offset-4">
                     <label>CategoryId:</label>
                     <input type="text" formControlName="Cid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Cid.errors }" />
                     <div *ngIf="submitted && f.Cid.errors" class="invalid-feedback">
                         <div *ngIf="f.Cid.errors.required">categoryid is required</div>
                        
                     </div>
-                </div>
+                </div> -->
                     <div class="form-group col-md-5 offset-4">
                         <label>CategoryName:</label>
                         <select formControlName="Categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Categoryname.errors }">

@@ -1,15 +1,15 @@
 <div class="container">
-<div class="card m-3">
+<div class="card text-white bg-info m-3">
 <h5 class="card-header text-center">Add Items</h5>
 <div class="card-body">
   <form [formGroup]="additemsForm" (ngSubmit)="onSubmit()">
-    <div class="form-group col-md-5 offset-4">
+    <!-- <div class="form-group col-md-5 offset-4">
       <label>ItemId:</label>
       <input type="text" formControlName="Iid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Iid.errors }">
       <div *ngIf="submitted && f.Iid.errors" class="invalid-feedback">
         <div *ngIf="f.Iid.errors.required">itemid is required</div>
       </div>
-    </div>
+    </div> -->
     <div class="form-group col-md-5 offset-4">
       <label>CategoryName:</label>
       <select id="s1" formControlName="Cid" (change)="onGetsubcategory()" class="form-control  input-line full-width" >
@@ -36,34 +36,6 @@
       </div>
     </div> -->
     
-  <!-- <div class="form-group col-md-5 offset-4">
-      <label>select Category:</label>
-      <select formControlName="Category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Category.errors }">
-        <option value=""></option>
-        <option value="Clothes">Clothes</option>
-        <option value="Electronics">Electronics</option>
-        <option value="Accessories">Accessories</option>
-        <option value="Grocery">Grocery</option>
-      </select>
-    <div *ngIf="submitted && f.Category.errors" class="invalid-feedback">
-      <div *ngIf="f.Category.errors.required">category is required</div>
-    </div>
-  </div>
-
-
-    <div class="form-group col-md-5 offset-4">
-      <label>select SubCategory:</label>
-      <select formControlName="Subcategory" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subcategory.errors }">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <div *ngIf="submitted && f.Subcategory.errors" class="invalid-feedback">
-        <div *ngIf="f.Subcategory.errors.required">subcategory is required</div>
-      </div>
-    </div> -->
  
     
 
@@ -108,9 +80,9 @@
 
         <div class="form-group col-md-5 offset-4">
           <label for="exampleFormControlFile1">Upload Photo:</label>
-          <input type="file" formControlName="Photo" class="form-control-file"[ngClass]="{ 'is-invalid': submitted && f.Photo.errors }">
-          <div *ngIf="submitted && f.Photo.errors" class="invalid-feedback">
-            <div *ngIf="f.Photo.errors.required">photo is required</div>
+          <input type="file" formControlName="image" (change)="fileEvent($event)" class="form-control-file"[ngClass]="{ 'is-invalid': submitted && f.image.errors }">
+          <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+            <div *ngIf="f.image.errors.required">image is required</div>
           </div>
         </div>
 

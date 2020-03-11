@@ -7,7 +7,7 @@ import { SignupSellerComponent } from './Account/signup-seller/signup-seller.com
 import { AdditemsComponent } from './Seller/additems/additems.component';
 import { ViewItemsComponent } from './Seller/view-items/view-items.component';
 import { ViewReportsComponent } from './Seller/view-reports/view-reports.component';
-import { ViewProfileComponent } from './Seller/view-profile/view-profile.component';
+
 
 import { SearchComponent } from './Buyer/search/search.component';
 import { ViewcartComponent } from './Buyer/viewcart/viewcart.component';
@@ -27,6 +27,11 @@ import { EditprofilesComponent } from './Seller/editprofiles/editprofiles.compon
 import { ContactComponent } from './Account/contact/contact.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
+import { ViewProfilesComponent } from './Seller/view-profiles/view-profiles.component';
+import { ViewprofileComponent } from './Buyer/viewprofile/viewprofile.component';
+import{LogoutComponent}from'./Account/logout/logout.component';
+import { CheckoutComponent } from './Buyer/checkout/checkout.component';
+
 
 
 const routes: Routes = [
@@ -34,7 +39,7 @@ const routes: Routes = [
   {path:'add-items',component:AdditemsComponent},
   {path:'view-items',component:ViewItemsComponent},
   {path:'view-reports',component:ViewReportsComponent},
-  {path:'view-profile',component:ViewProfileComponent},
+  {path:'viewprofiles',component:ViewProfilesComponent},
   {path:'editprofiles',component:EditprofilesComponent}
 ]},
   {path:'buyerindex',component:BuyerindexComponent},
@@ -42,8 +47,9 @@ const routes: Routes = [
   {path:'viewcart',component:ViewcartComponent},
   {path:'purchase-history',component:PurchaseHistoryComponent},
   {path:'buyproduct',component:BuyproductComponent},
-  {path:'viewprofile',component:ViewProfileComponent},
+  {path:'viewprofile',component:ViewprofileComponent},
   {path:'editprofile',component:EditprofileComponent},
+  {path:'checkout',component:CheckoutComponent},
 
 {path:'adminindex',component:AdminIndexComponent,children:[
   {path:'block-unblock-buyer',component:BlockUnblockBuyerComponent},
@@ -59,8 +65,9 @@ const routes: Routes = [
 {path:'home',component:HomeComponent},
 {path:'signup-buyer',component:SignupBuyerComponent},
 {path:'signup-seller',component:SignupSellerComponent},
+{path:'logout',component:LogoutComponent},
 {path:'contact',component:ContactComponent},
-{path:'',redirectTo:'home',pathMatch:"full"}
+{path:'',component:HomeComponent}
 ];
 
 @NgModule({

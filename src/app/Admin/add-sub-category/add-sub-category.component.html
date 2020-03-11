@@ -13,20 +13,6 @@
                 </div>
             </div>
             <div class="form-group col-md-5 offset-4">
-                <label> SubCategoryName:</label>
-                <!-- <option *ngFor="let item in List" value="itemCid">{{item.cName}}</option> -->
-                <select formControlName="SubCategoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubCategoryname.errors }">
-                    <option value=""></option>
-                    <option value="Clothes">Clothes</option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Accessories">Accessories</option>
-                    <option value="Grocery">Grocery</option>
-                </select>
-                <div *ngIf="submitted && f.SubCategoryname.errors" class="invalid-feedback">
-                    <div *ngIf="f.SubCategoryname.errors.required">subcategory name is required</div>
-                </div>
-            </div>
-            <div class="form-group col-md-5 offset-4">
                 <label>CategoryName:</label>
                 <select formControlName="CategoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CategoryName.errors }">
                     <option *ngFor="let cat of list" [value]="cat.cid">{{cat.categoryname}}</option>
@@ -35,6 +21,14 @@
                     <div *ngIf="f.CategoryName.errors.required">categoryname is required</div>
                 </div>
             </div>
+            <div class="form-group col-md-5 offset-4">
+                <label> SubCategoryName:</label>
+                <input type="text" formControlName="SubCategoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.SubCategoryname.errors }">
+                <div *ngIf="submitted && f.SubCategoryname.errors" class="invalid-feedback">
+                    <div *ngIf="f.SubCategoryname.errors.required">subcategory name is required</div>
+                </div>
+            </div>
+            
            
             <div class="form-group col-md-5 offset-4">
                 <label> BriefDetails:</label>

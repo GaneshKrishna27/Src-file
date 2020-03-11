@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/Models/category';
 import { AdminService } from 'src/app/service/admin.service';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-viewcategory',
@@ -10,7 +11,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class ViewcategoryComponent implements OnInit {
 category:Category[];
-  constructor(private service: AdminService) { }
+  constructor(private service: AdminService,private route:Router) { }
 
   ngOnInit() {
     this.Viewcategory();
@@ -38,5 +39,5 @@ category:Category[];
        console.log(err);
      })
    }
-
+   
 }

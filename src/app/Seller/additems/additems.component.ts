@@ -15,29 +15,32 @@ export class AdditemsComponent implements OnInit {
     items:Items;
     categorylist:Category[];
     subcategorylist:SubCategory[];
+    image:string;
 
     constructor(private formBuilder: FormBuilder,private service:SellerService) {
       this.service.Getcategory().subscribe(res=>{
         this.categorylist=res;
         console.log(this.categorylist);
       })
+      
      }
     ngOnInit() {
 
     this.additemsForm = this.formBuilder.group({
-      Iid: ['', Validators.required],
+      Iid: [''],
       Cid: ['', Validators.required],
       SCid: ['', [Validators.required]],
-      // Sid: ['', [Validators.required]],
+      Sid: ['', [Validators.required]],
       Itemname:['',[Validators.required]],
       Price:['',[Validators.required]],
       Description:['',[Validators.required]],
       Stock:['',[Validators.required]],
       Remarks:['',[Validators.required]],
-      Photo:['']
+      image:['',[Validators.required]]
 
     
   });
+  
   }
 
 // convenience getter for easy access to form fields
@@ -59,17 +62,24 @@ onSubmit() {
   this.submitted = true;
    // display form values on success
    if(this.additemsForm.valid){
-    this.items=new Items();
-    this.items.iid=(this.additemsForm.value["Iid"]),  
-    this.items.cid=this.additemsForm.value["Cid"],
-    this.items.scid=this.additemsForm.value["SCid"],
-    // this.items.sid=this.additemsForm.value["Sid"],  
-    this.items.itemname=this.additemsForm.value["Itemname"],
-    this.items.price=Number(this.additemsForm.value["Price"]),
-    this.items.description=this.additemsForm.value["Description"],  
-    this.items.stock=Number(this.additemsForm.value["Stock"]),
-    this.items.remarks=this.additemsForm.value["Remarks"],
-    this.items.photo=this.additemsForm.value["Photo"]
+    //  let sid=localStorage.getItem('sid')
+    alert('SUCCESS!! :-)\n\n') 
+  }
+  this.Add();
+}
+Add()
+{
+  this.items=new Items();
+    this.items.iid='I'+Math.round(Math.random()*1000);
+    this.items.cid=this.additemsForm.value["Cid"];
+    this.items.scid=this.additemsForm.value["SCid"];
+    this.items.sid=localStorage.getItem("sid"); 
+    this.items.itemname=this.additemsForm.value["Itemname"];
+    this.items.price=Number(this.additemsForm.value["Price"]);
+    this.items.description=this.additemsForm.value["Description"];
+    this.items.stock=Number(this.additemsForm.value["Stock"]);
+    this.items.remarks=this.additemsForm.value["Remarks"];
+    this.items.image=this.image;
     
     console.log(this.items);
     this.service.Additem(this.items).subscribe(res=>{
@@ -77,9 +87,11 @@ onSubmit() {
     },err=>{
       console.log(err);
     })
-    alert('SUCCESS!! :-)\n\n') 
-  }
 }
+fileEvent(event){
+  console.log("upload.......!");
+  this.image = event.target.files[0].name;
+} 
 
 onReset() {
   this.submitted = false;

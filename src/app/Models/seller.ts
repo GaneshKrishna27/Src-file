@@ -1,5 +1,5 @@
 export class Seller {
-    sid:number;
+    sid:string;
     username:string;
     password:string;
     companyname:string

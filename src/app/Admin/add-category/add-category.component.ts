@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { Category } from 'src/app/Models/category';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-category',
@@ -15,7 +16,7 @@ export class AddCategoryComponent implements OnInit {
   
 
 
-    constructor(private formBuilder: FormBuilder,private service:AdminService) { }
+    constructor(private formBuilder: FormBuilder,private service:AdminService,private route:Router) { }
     ngOnInit() {
 
     this.categoryForm = this.formBuilder.group({
@@ -36,7 +37,7 @@ onSubmit() {
    // display form values on success
    if(this.categoryForm.valid){
     this.category=new Category();
-    this.category.cid=this.categoryForm.value["Cid"];
+    this.category.cid='C'+Math.round(Math.random()*999);
     this.category.categoryname=this.categoryForm.value["Categoryname"];
     this.category.briefdetails=this.categoryForm.value["Briefdetails"];
     console.log(this.category);

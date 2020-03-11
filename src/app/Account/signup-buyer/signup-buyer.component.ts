@@ -39,13 +39,13 @@ export class SignupBuyerComponent implements OnInit {
     // display form values on success
         if (this.SignupForm.valid) {
             this.buyer=new Buyer();
-        this.buyer.bid=this.SignupForm.value["bid"];
+        this.buyer.bid='B'+Math.round(Math.random()*999);
         this.buyer.username=this.SignupForm.value["username"];
         this.buyer.password=this.SignupForm.value["password"];
         this.buyer.email=this.SignupForm.value["email"];
         this.buyer.mobile=this.SignupForm.value["mobile"];
        
-        this.buyer.datetime=this.SignupForm.value["datetime"];
+        this.buyer.datetime=new Date;
         
         this.service.BuyerSignup(this.buyer).subscribe(res=>{
         console.log('Record Added')

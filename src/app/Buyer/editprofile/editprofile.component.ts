@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyerService } from 'src/app/service/buyer.service';
 import { Buyer } from 'src/app/Models/buyer';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class EditprofileComponent implements OnInit {
     
     buyer:Buyer;
 
-  constructor(private formBuilder: FormBuilder,private service:BuyerService) { }
+  constructor(private formBuilder: FormBuilder,private service:BuyerService,private route:Router) { }
 
   ngOnInit() {
       this.EditProfileForm = this.formBuilder.group({
@@ -36,7 +37,7 @@ export class EditprofileComponent implements OnInit {
   get f() { return this.EditProfileForm.controls; }
 
   onSearch(){
-    let Bid=this.EditProfileForm.value["Bid"];
+    let Bid=localStorage.getItem('bid');
     this.service.GetById(Bid).subscribe(res=>
       {
           this.buyer=res;
@@ -81,4 +82,5 @@ export class EditprofileComponent implements OnInit {
       this.submitted = false;
       this.EditProfileForm.reset();
   }
+ 
 }

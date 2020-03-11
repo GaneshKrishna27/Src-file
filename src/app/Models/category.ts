@@ -1,5 +1,5 @@
 export class Category {
-cid:number;
+cid:string;
 categoryname:string;
 briefdetails:string;
 

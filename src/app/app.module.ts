@@ -7,7 +7,7 @@ import { ServicesComponent } from './services/services.component';
 import { AdditemsComponent } from './Seller/additems/additems.component';
 import { ViewItemsComponent } from './Seller/view-items/view-items.component';
 import { ViewReportsComponent } from './Seller/view-reports/view-reports.component';
-import { ViewProfileComponent } from './Seller/view-profile/view-profile.component';
+
 import { SearchComponent } from './Buyer/search/search.component';
 import { ViewcartComponent } from './Buyer/viewcart/viewcart.component';
 import { PurchaseHistoryComponent } from './Buyer/purchase-history/purchase-history.component';
@@ -37,6 +37,9 @@ import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.compone
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { UserAuthService } from './authentications/user-auth.service';
 import { AuthGuardService } from './authentications/auth-guard.service';
+import { ViewProfilesComponent } from './Seller/view-profiles/view-profiles.component';
+import { LogoutComponent } from './Account/logout/logout.component';
+import { CheckoutComponent } from './Buyer/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,7 @@ import { AuthGuardService } from './authentications/auth-guard.service';
     AdditemsComponent,
     ViewItemsComponent,
     ViewReportsComponent,
-    ViewProfileComponent,
+   
     SearchComponent,
     ViewcartComponent,
     PurchaseHistoryComponent,
@@ -67,7 +70,10 @@ import { AuthGuardService } from './authentications/auth-guard.service';
     EditprofilesComponent,
     ContactComponent,
     ViewcategoryComponent,
-    ViewsubcategoryComponent
+    ViewsubcategoryComponent,
+    ViewProfilesComponent,
+    LogoutComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubCategory } from 'src/app/Models/sub-category';
 import { AdminService } from 'src/app/service/admin.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class ViewsubcategoryComponent implements OnInit {
 subcategory:SubCategory;
-  constructor(private service:AdminService) { }
+  constructor(private service:AdminService,private route:Router) { }
 
   ngOnInit() {
     this.Viewsubcategory();
@@ -37,6 +38,7 @@ subcategory:SubCategory;
        console.log(err);
      })
    }
-
+  
+  
 
 }

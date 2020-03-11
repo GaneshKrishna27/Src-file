@@ -42,7 +42,7 @@ export class SignupSellerComponent implements OnInit {
     // display form values on success
         if (this.SignupForm.valid) {
             this.seller=new Seller();
-        this.seller.sid=this.SignupForm.value["Sid"];
+        this.seller.sid='S'+Math.round(Math.random()*999);
         this.seller.username=this.SignupForm.value["Username"];
         this.seller.password=this.SignupForm.value["Password"];
         this.seller.companyname=this.SignupForm.value["Companyname"];

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 <div class="card-deck">
     <div class="card">
       <img class="card-img-top" src="..." alt="Card image cap">
@@ -39,13 +39,13 @@
         </div>
       </div>
   </div>
-</div>
+</div> -->
 
 
 <div class="view">    
     <div class="container">
            <div class=" table">
-            <div class="table-info">
+            <div class="table-light">
                <tr>
                    <th>ItemId:</th>
                    <th>ItemName:</th>
@@ -53,6 +53,7 @@
                    <th>Description</th>
                    <th>Stock:</th>
                    <th>Remarks:</th>
+                   <th>Image:</th>
                    <!-- <th>SellerId</th> -->
                </tr>
                <tr *ngFor="let item of list">  
@@ -62,6 +63,7 @@
                     <td>{{item.description}}</td>
                     <td>{{item.stock}}</td>
                     <td>{{item.remarks}}</td>
+                    <td><img src="/assets/images/{{item.image}}" style="height: 150px;width: 150px;"> </td>
                     <!-- <td>{{item.sid}}</td> -->
                     <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td>
                     <td><button class="btn btn-danger  mr-1" (click)="Deleteitem(item.iid)">Delete</button></td>
@@ -85,7 +87,8 @@
                             <div *ngIf="f.Iid.errors.required">itemid is required</div>
                           </div>
                         </div>
-                       
+
+  
                         <div class="form-group col-md-5 offset-4">
                           <label>ItemName:</label>
                           <input type="text" formControlName="Itemname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Itemname.errors }">
@@ -124,6 +127,14 @@
                               <div *ngIf="f.Remarks.errors.required">remarks is required</div>
                             </div>
                           </div>
+                    
+                            <!-- <div class="form-group col-md-5 offset-4">
+                              <label for="exampleFormControlFile1">Upload Photo:</label>
+                              <input type="file" formControlName="Photo" class="form-control-file"[ngClass]="{ 'is-invalid': submitted && f.Photo.errors }">
+                              <div *ngIf="submitted && f.Photo.errors" class="invalid-feedback">
+                                <div *ngIf="f.Photo.errors.required">photo is required</div>
+                              </div>
+                            </div> -->
       
                             <div class="text-center">
                               <button class="btn btn-primary mr-1" (click)="Update()">Update</button>

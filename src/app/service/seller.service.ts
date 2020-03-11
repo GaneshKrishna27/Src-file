@@ -7,6 +7,7 @@ import { Category } from '../Models/category';
 import { SubCategory } from '../Models/sub-category';
 const Requestheaders={headers:new HttpHeaders({
   'Content-Type':'application/json',
+  'Authorization':'Bearer'+localStorage.getItem('token')
 })}
 
 @Injectable({
@@ -29,10 +30,9 @@ export class SellerService {
   {
     return this.http.post<any>(this.url+'Additem',JSON.stringify(items),Requestheaders);
   }
- 
   public Updateitem(items:Items):Observable<any>
   {
-    return this.http.put<any>(this.url+'Updateitem',Requestheaders);
+    return this.http.put<any>(this.url+'Updateitem',items,Requestheaders);
   }
   public Deleteitem(Iid:string):Observable<Items>
   {

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubCategory } from 'src/app/Models/sub-category';
 import { AdminService } from 'src/app/service/admin.service';
 import { Category } from 'src/app/Models/category';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-sub-category',
   templateUrl: './add-sub-category.component.html',
@@ -14,7 +15,7 @@ export class AddSubCategoryComponent implements OnInit {
     subcategory:SubCategory;
     list:Category[];
 
-    constructor(private formBuilder: FormBuilder,private service:AdminService) { 
+    constructor(private formBuilder: FormBuilder,private service:AdminService,private route:Router) { 
       this.Getcategory();
     }
     ngOnInit() {
@@ -37,9 +38,9 @@ onSubmit() {
    // display form values on success
    if(this.subcategoryForm.valid){
     this.subcategory=new SubCategory();
-    this.subcategory.scid=this.subcategoryForm.value["SCid"];
+    this.subcategory.scid='SC'+Math.round(Math.random()*999);
     this.subcategory.subCategoryname=this.subcategoryForm.value["SubCategoryname"];
-    this.subcategory.categoryname=this.subcategoryForm.value["CategoryName"];
+    this.subcategory.cid=this.subcategoryForm.value["CategoryName"];
     this.subcategory.briefdetails=this.subcategoryForm.value["Briefdetails"];
     this.subcategory.gst=this.subcategoryForm.value["Gst"];
     console.log(this.subcategory);

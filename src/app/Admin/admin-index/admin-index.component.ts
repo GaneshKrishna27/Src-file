@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-index',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) {
+    if(!(localStorage.getItem('token'))){
+      this.route.navigateByUrl('/home');
+    }
+
+   }
 
   ngOnInit() {
   }
-
+ 
 }
